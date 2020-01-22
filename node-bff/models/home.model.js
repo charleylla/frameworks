@@ -1,3 +1,5 @@
+const BaseModel = require('~/core/base.model')
+
 /**
  * @fileoverview Home 的数据模型
  * @author Charley
@@ -7,19 +9,18 @@
  * @description Home 的数据模型
  * @class
  */
-class HomeModel {
-
+class HomeModel extends BaseModel{
+  constructor(){
+    super()
+  }
    /**
     * @method
     * @description 获取初始化数据
     */
   async getHomeData(){
-    const data = { msg:'Hello World' }
-    return new Promise(res => {
-      setTimeout(() => {
-        res(data)
-      },2000)
-    })
+    const res = await this.baseHTTP.get('/')
+    const { data } = res;
+    return data;
   }
 }
 

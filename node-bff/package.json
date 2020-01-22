@@ -3,20 +3,31 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "_moduleAliases": {
+    "~": ".",
+    "~config": "config",
+    "~models": "models",
+    "~controllers": "controllers",
+    "~middlewares": "middlewares"
+  },
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon ./app.js",
     "doc:server": "jsdoc -c jsdoc.config.js",
-    "build":"babel ./assets/scripts/home.js -o ./assets/scripts/home.bundle.js"
+    "build": "babel ./assets/scripts/home.js -o ./assets/scripts/home.bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "co": "^4.6.0",
     "koa": "^2.11.0",
     "koa-simple-router": "^0.2.0",
     "koa-static": "^5.0.0",
-    "koa-swig": "^2.2.1"
+    "koa-swig": "^2.2.1",
+    "log4js": "^6.1.0",
+    "module-alias": "^2.2.2",
+    "qs": "^6.9.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",

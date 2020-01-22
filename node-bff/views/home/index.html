@@ -7,9 +7,13 @@
 
 {% block content %}
   <div id="app">
-    <h1 class="home__title">Hello Home Index</h1>
-    <input v-model="msg"/>
-    <p>{{ msg }}</p>
+    <h1 class="home__title">随机狗狗照片</h1>
+    <div class="home__btnbox">
+      <button @click="getRandomPic">换一张</button>
+    </div>
+    <div class="home__imgbox">
+      <img class="home_pic" src="[[data.url]]"/>
+    </div>
   </div>
 {% endblock %}
 

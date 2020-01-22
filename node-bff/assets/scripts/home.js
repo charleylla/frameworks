@@ -8,6 +8,11 @@ export class Home  {
       el:'#app',
       data:{
         msg:this.templateData
+      },
+      methods:{
+        getRandomPic(){
+          window.location.reload()
+        }
       }
     })
   }

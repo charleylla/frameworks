@@ -4,9 +4,12 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const viewsDir = path.join(__dirname,'../views')
 const staticDir = path.join(__dirname,'../assets')
+const logDir = path.join(__dirname,'../logs')
 const varControls = ['[[',']]']
+
 config.set('viewsDir',viewsDir)
 config.set('staticDir',staticDir)
+config.set('logDir',logDir)
 
 if(isDev){
   config.set('port',3000);

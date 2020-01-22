@@ -1,4 +1,4 @@
-const HomeModel = require('../models/home.model');
+const HomeModel = require('~models/home.model');
 
 class HomeController {
   constructor() {
