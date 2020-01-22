@@ -11,9 +11,9 @@
     "~middlewares": "middlewares"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon ./app.js",
-    "doc:server": "jsdoc -c jsdoc.config.js",
-    "build": "babel ./assets/scripts/home.js -o ./assets/scripts/home.bundle.js"
+    "server:start": "scripty",
+    "server:doc": "scripty",
+    "client:build": "scripty"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +35,7 @@
     "@babel/preset-env": "^7.8.3",
     "cross-env": "^6.0.3",
     "jsdoc": "^3.6.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "scripty": "^1.9.1"
   }
 }

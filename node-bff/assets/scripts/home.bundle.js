@@ -29,6 +29,11 @@ System.register([], function (_export, _context) {
               el: '#app',
               data: {
                 msg: this.templateData
+              },
+              methods: {
+                getRandomPic: function getRandomPic() {
+                  window.location.reload();
+                }
               }
             });
           }
