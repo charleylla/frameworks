@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block scripts %}
+  <!-- 支持 ESModule 的直接通过 Module 加载 -->
   <script type="module">
     import('/scripts/home.js').then(( { Home }) => {
       new Home("[[data.msg]]").init()
