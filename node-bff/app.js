@@ -1,10 +1,28 @@
 const Koa = require('koa')
+const co = require('co');
+const render = require('koa-swig');
+const serve = require('koa-static');
+const config = require('./config');
+
 const app = new Koa()
+const AppRoute = require('./router')
 
-app.use(async ctx => {
-  ctx.body = 'Hello World'
-})
+// 注册模板
+app.context.render = co.wrap(render({
+  root: config.get('viewsDir'),
+  autoescape: true,
+  cache: config.get('swig').cache, // disable, set to false
+  ext: 'html',
+  writeBody: false,
+  varControls:config.get('swig').varControls
+}));
 
-app.listen(3000,() => {
+// 初始化静态文件
+app.use(serve(config.get('staticDir')))
+
+// 初始化路由
+new AppRoute(app).init();
+
+app.listen(config.get('port'),() => {
   console.log('Server is running...')
 })
