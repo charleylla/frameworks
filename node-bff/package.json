@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "_moduleAliases": {
-    "~": ".",
+    "~": "src",
     "~config": "config",
-    "~models": "models",
-    "~controllers": "controllers",
-    "~middlewares": "middlewares"
+    "~server": "src/server",
+    "~models": "src/server/models",
+    "~controllers": "src/server/controllers",
+    "~middlewares": "src/server/middlewares"
   },
   "scripts": {
     "server:start": "scripty",

@@ -1,7 +1,7 @@
 const router = require('koa-simple-router')
 
 // 引入 controller
-const HomeController = require('~/controllers/home.controller')
+const HomeController = require('~server/controllers/home.controller')
 const homeController = new HomeController();
 
 class AppRoute {

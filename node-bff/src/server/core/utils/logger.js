@@ -1,5 +1,5 @@
 const log4js = require('log4js');
-const config = require('~/config')
+const config = require('~config')
 
 // 配置日志 
 // 批量定义多个级别的 logger，不同的 logger 存放在不同的目录

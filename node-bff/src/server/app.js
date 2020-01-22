@@ -3,7 +3,7 @@ const Koa = require('koa')
 const co = require('co');
 const render = require('koa-swig');
 const serve = require('koa-static');
-const config = require('./config');
+const config = require('~config');
 const { ErrorMiddleware,LoggerMiddleware } = require('./middlewares')
 
 const app = new Koa()

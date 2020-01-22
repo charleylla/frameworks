@@ -1,5 +1,5 @@
 
-const logger = require('~/core/utils/logger')
+const logger = require('~server/core/utils/logger')
 
 class LoggerMiddleware{
   constructor(app){

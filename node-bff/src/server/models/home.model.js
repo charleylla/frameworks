@@ -1,4 +1,4 @@
-const BaseModel = require('~/core/base.model')
+const BaseModel = require('~server/core/base.model')
 
 /**
  * @fileoverview Home 的数据模型
