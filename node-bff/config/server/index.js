@@ -2,9 +2,9 @@ const path = require('path')
 const config = new Map()
 const isDev = process.env.NODE_ENV === 'development';
 
-const viewsDir = path.join(__dirname,'../src/web/views')
-const staticDir = path.join(__dirname,'../src/web/assets')
-const logDir = path.join(__dirname,'../../logs')
+const viewsDir = path.resolve(__dirname,'../../src/web/views')
+const staticDir = path.resolve(__dirname,'../../src/web/assets')
+const logDir = path.resolve(__dirname,'../../logs')
 const varControls = ['[[',']]']
 
 config.set('viewsDir',viewsDir)
