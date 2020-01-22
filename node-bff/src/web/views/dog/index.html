@@ -2,18 +2,18 @@
 {% block title %} 首页 {% endblock %}
 
 {% block style %}
-  <link type='text/css' rel='stylesheet' href='/styles/home.css'/>
+  <link type='text/css' rel='stylesheet' href='/styles/dog.css'/>
 {% endblock  %}
 
 {% block content %}
   <div id="app">
-    <h1 class="home__title">随机狗狗照片</h1>
-    <div class="home__btnbox">
+    <h1 class="dog__title">随机狗狗照片</h1>
+    <div class="dog__btnbox">
       <button @click="getRandomPic">换一张</button>
     </div>
-    <div class="home__imgbox">
+    <div class="dog__imgbox">
       <p>图片大小：[[data.fileSizeBytesDesc]]</p>
-      <img class="home_pic" src="[[data.url]]"/>
+      <img class="dog__pic" src="[[data.url]]"/>
     </div>
   </div>
 {% endblock %}
@@ -21,14 +21,14 @@
 {% block scripts %}
   <!-- 支持 ESModule 的直接通过 Module 加载 -->
   <script type="module">
-    import('/scripts/home.js').then(( { Home }) => {
-      new Home("[[data.msg]]").init()
+    import('/scripts/dog.js').then(( { Dog }) => {
+      new Dog("[[data.msg]]").init()
     })
   </script>
   <!-- 不支持 module 的浏览器使用 SystemJS 加载模块 -->
   <script nomodule>
-    System.import('/scripts/home.bundle.js').then(( { Home }) => {
-      new Home("[[data.msg]]").init()
+    System.import('/scripts/dog.bundle.js').then(( { Dog }) => {
+      new Dog("[[data.msg]]").init()
     })
   </script>
 {% endblock  %}

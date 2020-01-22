@@ -1,17 +1,17 @@
-.home__title {
+.dog__title {
   background-color: cornflowerblue;
   text-align: center;
 }
 
-.home__imgbox {
+.dog__imgbox {
   text-align: center;
   padding: 20px;
 }
 
-.home_pic{
+.dog__pic{
   max-width: 300px;
 }
 
-.home__btnbox{
+.dog__btnbox{
   text-align: center;
 }

@@ -1,15 +1,15 @@
 const BaseModel = require('~server/core/base.model')
 
 /**
- * @fileoverview Home 的数据模型
+ * @fileoverview Dog 的数据模型
  * @author Charley
  */
 
 /**
- * @description Home 的数据模型
+ * @description Dog 的数据模型
  * @class
  */
-class HomeModel extends BaseModel{
+class DogModel extends BaseModel{
   constructor(){
     super()
   }
@@ -17,7 +17,7 @@ class HomeModel extends BaseModel{
     * @method
     * @description 获取初始化数据
     */
-  async getHomeData(){
+  async getDogData(){
     const res = await this.baseHTTP.get('/')
     const { data } = res;
     // 计算图片大小
@@ -26,4 +26,4 @@ class HomeModel extends BaseModel{
   }
 }
 
-module.exports = HomeModel;
+module.exports = DogModel;

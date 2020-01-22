@@ -1,4 +1,4 @@
-export class Home  {
+export class Dog {
   constructor(templateData){
     this.templateData = templateData;
     console.log(templateData)

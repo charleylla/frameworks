@@ -1,8 +1,8 @@
 const router = require('koa-simple-router')
 
 // 引入 controller
-const HomeController = require('~server/controllers/home.controller')
-const homeController = new HomeController();
+const DogController = require('~server/controllers/dog.controller')
+const dogController = new DogController();
 
 class AppRoute {
   constructor(app){
@@ -11,7 +11,7 @@ class AppRoute {
   // 初始化路由
   init(){
     this.app.use(router(_ => {
-      _.get('/',homeController.actionIndex.bind(homeController));
+      _.get('/',dogController.actionIndex.bind(dogController));
     }))
     return this;
   }
