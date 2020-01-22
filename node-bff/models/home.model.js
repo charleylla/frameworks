@@ -20,6 +20,8 @@ class HomeModel extends BaseModel{
   async getHomeData(){
     const res = await this.baseHTTP.get('/')
     const { data } = res;
+    // 计算图片大小
+    data.fileSizeBytesDesc = Math.round(data.fileSizeBytes / 1024) + 'KB'
     return data;
   }
 }
