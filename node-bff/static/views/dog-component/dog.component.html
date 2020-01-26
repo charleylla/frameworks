@@ -1,0 +1,24 @@
+{% extends '../layout/layout.html' %}
+{% block title %} 首页 {% endblock %}
+
+{% block style %}
+  <link type='text/css' rel='stylesheet' href='/styles/dog.component.css'/>
+{% endblock  %}
+
+{% block content %}
+  {% include '../../components/banner-component/banner.component.html' %}
+  <div id="app">
+    <h1 class="dog__title">随机狗狗照片</h1>
+    <div class="dog__btnbox">
+      <button @click="getRandomPic">换一张</button>
+    </div>
+    <div class="dog__imgbox">
+      <p>图片大小：[[data.fileSizeBytesDesc]]</p>
+      <img class="dog__pic" src="[[data.imgUrl]]"/>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/scripts/webpack-runtime.6914d.js"></script><script src="/scripts/dog.component.f49fc.js"></script>
+{% endblock  %}

@@ -1,0 +1,24 @@
+{% extends '../layout/layout.html' %}
+{% block title %} 首页 {% endblock %}
+
+{% block style %}
+  <link type='text/css' rel='stylesheet' href='/styles/cat.component.css'/>
+{% endblock  %}
+
+{% block content %}
+  {% include '~components/banner-component/banner.component.html' %}
+  <div id="app">
+    <h1 class="cat__title">随机喵喵照片</h1>
+    <div class="cat__btnbox">
+      <button @click="getRandomPic">换一张</button>
+    </div>
+    <div class="cat__imgbox">
+      <p>图片大小：[[data.fileSizeBytesDesc]]</p>
+      <img class="cat__pic" src="[[data.imgUrl]]"/>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <!-- !inject-javascript -->
+{% endblock  %}

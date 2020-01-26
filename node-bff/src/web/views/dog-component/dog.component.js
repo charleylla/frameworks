@@ -1,14 +1,7 @@
 export class Dog {
-  constructor(templateData){
-    this.templateData = templateData;
-    console.log(templateData)
-  }
   init(){
     new Vue({
       el:'#app',
-      data:{
-        msg:this.templateData
-      },
       methods:{
         getRandomPic(){
           window.location.reload()
@@ -17,3 +10,5 @@ export class Dog {
     })
   }
 }
+
+new Dog().init()

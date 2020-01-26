@@ -13,8 +13,11 @@
   },
   "scripts": {
     "server:start": "scripty",
-    "server:doc": "scripty",
-    "client:build": "scripty"
+    "client:start": "scripty",
+    "client:build": "scripty",
+    "start": "npm-run-all --parallel client:start server:start -- --watch",
+    "build": "yarn client:build",
+    "doc": "scripty"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +25,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "co": "^4.6.0",
+    "copy-webpack-plugin": "^5.1.1",
     "koa": "^2.11.0",
     "koa-simple-router": "^0.2.0",
     "koa-static": "^5.0.0",
@@ -34,12 +38,17 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
+    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.3",
+    "glob": "^7.1.6",
     "html-webpack-plugin": "^3.2.0",
     "jsdoc": "^3.6.3",
     "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "scripty": "^1.9.1",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-build-notifier": "^2.0.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   }
 }

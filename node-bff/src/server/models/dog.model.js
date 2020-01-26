@@ -18,10 +18,11 @@ class DogModel extends BaseModel{
     * @description 获取初始化数据
     */
   async getDogData(){
-    const res = await this.baseHTTP.get('/')
+    const res = await this.baseHTTP.dogFetch.get('/')
     const { data } = res;
     // 计算图片大小
     data.fileSizeBytesDesc = Math.round(data.fileSizeBytes / 1024) + 'KB'
+    data.imgUrl = data.url;
     return data;
   }
 }

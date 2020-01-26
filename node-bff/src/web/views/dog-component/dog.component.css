@@ -1,0 +1,17 @@
+.dog__title {
+  background-color: cornflowerblue;
+  text-align: center;
+}
+
+.dog__imgbox {
+  text-align: center;
+  padding: 20px;
+}
+
+.dog__pic{
+  max-width: 300px;
+}
+
+.dog__btnbox{
+  text-align: center;
+}
