@@ -1,0 +1,23 @@
+{% extends '../layout/layout.html' %}
+{% block title %} 首页 {% endblock %}
+
+{% block style %}
+  <link data-load="pjax-css" type='text/css' rel='stylesheet' href='/styles/dog.component.css'/>
+{% endblock  %}
+
+{% block content %}
+  <div data-load="pjax" id="app">
+    <h1 class="dog__title">随机狗狗照片</h1>
+    <div class="dog__btnbox">
+      <button id="btn-dog">换一张</button>
+    </div>
+    <div class="dog__imgbox">
+      <p>图片大小：[[data.fileSizeBytesDesc]]</p>
+      <img class="dog__pic" src="[[data.imgUrl]]"/>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <!-- !inject-javascript -->
+{% endblock  %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock  %}</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/styles/layout.css"/>
+    {% block style %}{% endblock  %}
+</head>
+<body>
+    {% include '../../components/banner-component/banner.component.html' %}
+    <div id="root">
+      {% block content %}{% endblock  %}
+    </div>
+</body>
+<!-- <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.staticfile.org/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+<script src="https://cdn.staticfile.org/quicklink/1.0.1/quicklink.umd.js"></script> -->
+<script src="https://cdn.staticfile.org/basket.js/0.5.2/basket.full.min.js"></script>
+<script>
+  basket.require(
+    { url:'https://cdn.staticfile.org/jquery/3.4.1/jquery.js' },
+    { url:'https://cdn.staticfile.org/jquery.pjax/2.0.1/jquery.pjax.js' },
+    { url:'https://cdn.staticfile.org/quicklink/1.0.1/quicklink.umd.js' },
+  ).then(() => {
+    $(document).pjax('a','#root',{
+      timeout:50000
+    });
+    // 启用 quicklink
+    quicklink()
+  })
+
+  // 激活资源
+  function activeResource(...args){
+    basket.require(...args).then(() => {
+      console.warn(`== 激活资源  ==`) 
+      console.warn(args)
+      console.warn(`== 激活资源  ==`) 
+    })
+  }
+</script>
+{% block scripts %}{% endblock  %}
+</html> 
