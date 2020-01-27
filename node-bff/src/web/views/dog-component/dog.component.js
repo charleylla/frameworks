@@ -1,12 +1,8 @@
 export class Dog {
   init(){
-    new Vue({
-      el:'#app',
-      methods:{
-        getRandomPic(){
-          window.location.reload()
-        }
-      }
+    console.warn('==准备更换新的狗狗==')
+    document.querySelector('#btn-dog').addEventListener('click',() => {
+      window.location.reload();
     })
   }
 }

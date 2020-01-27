@@ -4,7 +4,7 @@ const co = require('co');
 const render = require('koa-swig');
 const serve = require('koa-static');
 const config = require('~config/server');
-const { ErrorMiddleware,LoggerMiddleware } = require('./middlewares')
+const { ErrorMiddleware,LoggerMiddleware,PjaxMiddleware } = require('./middlewares')
 
 const app = new Koa()
 const AppRoute = require('./router')
@@ -21,6 +21,8 @@ app.context.render = co.wrap(render({
 // 初始化静态文件
 app.use(serve(config.get('staticDir')))
 
+// Pjax
+new PjaxMiddleware(app).init();
 // 日志功能
 new LoggerMiddleware(app).init();
 // 容错处理

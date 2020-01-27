@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock  %}</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="/styles/layout.css"/>
     {% block style %}{% endblock  %}
 </head>
 <body>
-    {% block content %}{% endblock  %}
+    {% include '../../components/banner-component/banner.component.html' %}
+    <div id="root">
+      {% block content %}{% endblock  %}
+    </div>
 </body>
-<script src="https://cdn.bootcss.com/systemjs/6.1.2/system.js"></script>
-<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.staticfile.org/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+<script>
+  $(document).pjax('a','#root',{
+    timeout:50000
+  });
+</script>
 {% block scripts %}{% endblock  %}
 </html> 

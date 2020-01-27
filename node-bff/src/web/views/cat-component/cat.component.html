@@ -2,15 +2,14 @@
 {% block title %} 首页 {% endblock %}
 
 {% block style %}
-  <link type='text/css' rel='stylesheet' href='/styles/cat.component.css'/>
+  <link data-load="pjax-css" type='text/css' rel='stylesheet' href='/styles/cat.component.css'/>
 {% endblock  %}
 
 {% block content %}
-  {% include '~components/banner-component/banner.component.html' %}
-  <div id="app">
+  <div data-load="pjax" id="app">
     <h1 class="cat__title">随机喵喵照片</h1>
     <div class="cat__btnbox">
-      <button @click="getRandomPic">换一张</button>
+      <button id="btn-dog">换一张</button>
     </div>
     <div class="cat__imgbox">
       <p>图片大小：[[data.fileSizeBytesDesc]]</p>

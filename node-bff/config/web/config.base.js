@@ -36,6 +36,7 @@ function resolveFiles(files) {
       htmlPlugins.push(new HtmlWebpackPlgin({
         template: templateFile,
         filename: htmlFilename,
+        inject:false,
         chunks: ['webpack-runtime', entryName]
       }))
     }
@@ -82,8 +83,10 @@ module.exports = {
   },
   plugins: [
     ...htmlPlugins,
-    new AfterHtmlWebpackPlugin(),
-    new CleanWebpackPlugin(),
+    new AfterHtmlWebpackPlugin({
+      commonChunks:['webpack-runtime']
+    }),
+    // new CleanWebpackPlugin(),
     new WebpackBuildNotifierPlugin({
       title: "Webpack 项目构建",
       suppressSuccess: true

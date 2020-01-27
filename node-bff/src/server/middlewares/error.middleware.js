@@ -30,6 +30,12 @@ class ErrorMiddleware {
       } catch (e) {
         // 捕获其他错误
         ctx.status = 500;
+        ctx.body = {
+          code:-1,
+          status:false,
+          message:'服务器开小差了',
+          timeStamp:+new Date()
+        }
         // 错误日志 
         ctx.logger.errorLogger.error(e)
       }
