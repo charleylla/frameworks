@@ -21,34 +21,11 @@ class AfterHtmlWebpackPlugin {
       // 为 html-webpack-plugin 编写插件
       // 替换 js 脚本
       compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap('AfterHtmlWebpackPlugin', data => {
-        const { html, assets: { js, publicPath, chunks } } = data;
+        const { html, assets: { js, publicPath } } = data;
         let htmlAfterReplace = html;
-        const jsSource = [];
+        const jsList = this.handleJsList(data)
 
-        const jsList = js.map(script => script.replace(publicPath, ''))
-          .map(script => {
-            const absolutePath = script.split('assets').pop()
-            const chunkName = absolutePath.split('/scripts').pop()
-            // 推入资源
-            jsSource.push(JSON.stringify({ url: absolutePath }))
-            const reg = /\/scripts\/(.*)\.(.*)\.js$/g
-
-            if (reg.test(absolutePath)) {
-              const chunkName = RegExp.$1;
-              // 白名单
-              if (this.commonChunksMap[chunkName]) {
-                // 使用 data-src 不下载文件，通过 basket 下载
-                return `<script data-src="${absolutePath}"></script>`
-              }
-            }
-            
-            // 使用 data-src 不下载文件，通过 basket 下载
-            return `<script data-load="pjax-js" data-src="${absolutePath}"></script>`
-          })
-
-        jsList.push(`<script>activeResource(${jsSource.join(',')})</script>`);
-
-        htmlAfterReplace = html.replace(injectJavaScriptMatch, jsList.join(''))
+        htmlAfterReplace = html.replace(injectJavaScriptMatch, jsList)
           .replace(componentAliasMatch, '../../components')
         // 修改 html
         data.html = htmlAfterReplace;
@@ -58,6 +35,34 @@ class AfterHtmlWebpackPlugin {
         // data.assets.js = []
       })
     })
+  }
+  // 处理 js
+  handleJsList(data) {
+    const { assets: { js, publicPath } } = data;
+    const jsSource = [];
+    const jsList = js.map(script => script.replace(publicPath, ''))
+      .map(script => {
+        const absolutePath = script.split('assets').pop()
+        const chunkName = absolutePath.split('/scripts').pop()
+        // 推入资源
+        jsSource.push(JSON.stringify({ url: absolutePath }))
+        const reg = /\/scripts\/(.*)\.(.*)\.js$/g
+
+        if (reg.test(absolutePath)) {
+          const chunkName = RegExp.$1;
+          // 白名单
+          if (this.commonChunksMap[chunkName]) {
+            // 使用 data-src 不下载文件，通过 basket 下载
+            return `<script data-src="${absolutePath}"></script>`
+          }
+        }
+
+        // 使用 data-src 不下载文件，通过 basket 下载
+        return `<script data-load="pjax-js" data-src="${absolutePath}"></script>`
+      })
+
+    jsList.push(`<script>activeResource(${jsSource.join(',')})</script>`);
+    return jsList.join('')
   }
 }
 
