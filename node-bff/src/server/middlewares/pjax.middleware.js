@@ -59,8 +59,11 @@ class PjaxMiddleware {
         // 读取 js
         // 已经加载过的 js 不再重复加载
         $('[data-load=pjax-js]').each(function(){
-          const src = $(this).attr('src')
-          const result = `<script src="${src}"></script>`
+          // 通过 data-src 读取
+          const url = $(this).attr('data-src')
+          // const result = `<script src="${src}"></script>`
+          // 通过 basket 懒加载 js
+          const result = `<script>activeResource(${JSON.stringify({ url })})</script>`
           // ctx.res.write(result)
           writeHTML(ctx,result)
         })
