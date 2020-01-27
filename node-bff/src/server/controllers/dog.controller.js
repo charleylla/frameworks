@@ -6,8 +6,7 @@ class DogController {
   }
   async actionIndex(ctx) {
     const data = await this.model.getDogData()
-    const html = await ctx .render('dog-component/dog.component.html',{ data })
-    ctx.body = html;
+    await ctx .render('dog-component/dog.component.html',{ data })
   }
 }
 

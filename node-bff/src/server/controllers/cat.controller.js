@@ -10,8 +10,7 @@ class CatController {
     // 渲染出的结果赋值给 ctx.body
     // Node 和 JS 的各种模板都可以配合，如 vue、jsx、tsx ···
     // Node 很适合做渲染
-    const html = await ctx.render('cat-component/cat.component.html',{ data })
-    ctx.body = html;
+    await ctx.render('cat-component/cat.component.html',{ data })
   }
 }
 
